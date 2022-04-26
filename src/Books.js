@@ -5,15 +5,25 @@ class Books extends Component {
     render(){
         const { book, books, updateBookShelf} = this.props;
         //console.log(books)
-        console.log(book)
-        let book_shelf = book.shelf;
+       // console.log(book.id)
+        let book_shelf = "";
+        if(book.shelf===undefined){
+            let required =  books.filter((bk) => bk.id===book.id);
+            book_shelf = required.length > 0 ? required[0].shelf : "none";
+        }
+        else{
+            book_shelf = book.shelf;
+        }
+                
+        let image = book.imageLinks === undefined ? "" : book.imageLinks.thumbnail;
+        //console.log(image)
                    
         return(
             <div>
                 <li>
                 <div className="book">
                     <div className="book-top">
-                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})`}}></div>
+                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${image})`}}></div>
                             <div className="book-shelf-changer">
                               <select value={book_shelf} onChange={(event)=>updateBookShelf(book, event.target.value)}>
                                 <option value="move" disabled>Move to...</option>

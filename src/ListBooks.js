@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 class ListBooks extends Component {
     render() {
         const {books, updateBookShelf} = this.props
-        console.log(books)
+        //console.log(books)
         return (
             <div className="list-books">
                 <Link to="/search"><h3>Click here to search books</h3></Link>

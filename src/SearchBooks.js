@@ -31,9 +31,13 @@ class SearchBooks extends Component {
 
     render() {
         const {books, updateBookShelf } = this.props;
+        //console.log(books)
         const { query, searchBooks } = this.state;
-        const showingBooks = query === '' ? [] : searchBooks;
+        //console.log(searchBooks)
         
+        //console.log(newBook)
+        const showingBooks = query === '' ? [] : searchBooks;
+       // let book_shelf = books.shelf
         return (
             <div className="search-books">
                 <div className="search-books-bar">

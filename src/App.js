@@ -27,7 +27,7 @@ class BooksApp extends React.Component {
       }))
     })
   }
-
+  //console.log(books)
   updateBookShelf = (book, shelf) => {
     (book.shelf !== shelf) && 
       BooksAPI.update(book, shelf).then(() => {
@@ -41,7 +41,7 @@ class BooksApp extends React.Component {
   render() {
     const {books} = this.state
     //const book=books.map(b => b.imageLinks)
-    //console.log(books.shelf)
+    console.log(books)
     return (
       <div className="app">
         <Routes>
